@@ -1,0 +1,26 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="form-container">
+    <h2 align="center">Data Mahasiswa Tersimpan</h2>
+    <div id="hasilSimpan" style="padding: 20px; border: 1px dashed black; background: #f9f9f9;">
+        </div>
+
+    <script>
+        // Ambil data dari penyimpanan browser
+        const data = JSON.parse(localStorage.getItem('dataMahasiswa'));
+
+        const display = document.getElementById('hasilSimpan');
+        if(data) {
+            display.innerHTML = `
+                <p><strong>NPM:</strong> ${data.npm}</p>
+                <p><strong>Nama:</strong> ${data.nama}</p>
+                <p><strong>Alamat:</strong> ${data.alamat}</p>
+            `;
+        } else {
+            display.innerHTML = "Belum ada data yang disimpan nih, Sha.";
+        }
+    </script>
+</body>
+</html>

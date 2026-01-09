@@ -1,0 +1,71 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Tambahan CSS khusus form biar persis gambar */
+        .form-table {
+            width: 100%;
+            border: none; /* Hilangkan border tabel di dalam form */
+        }
+        .form-table td {
+            border: none;
+            padding: 8px;
+        }
+        .label-col {
+            width: 150px;
+            text-align: left;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        textarea {
+            height: 80px;
+        }
+    </style>
+</head>
+<body class="form-container">
+    <h2 align="center">Input Data Mahasiswa</h2>
+    
+    <table class="form-table">
+        <tr>
+            <td class="label-col">NPM</td>
+            <td width="10">:</td>
+            <td><input type="text" name="npm"></td>
+        </tr>
+        <tr>
+            <td class="label-col">Nama</td>
+            <td>:</td>
+            <td><input type="text" name="nama"></td>
+        </tr>
+        <tr>
+            <td class="label-col">Alamat</td>
+            <td>:</td>
+            <td><textarea name="alamat"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+    function simpanData() {
+        // Ambil nilai dari input
+        const mhs = {
+            npm: document.getElementsByName('npm')[0].value,
+            nama: document.getElementsByName('nama')[0].value,
+            alamat: document.getElementsByName('alamat')[0].value
+        };
+
+        // Simpan ke LocalStorage browser
+        localStorage.setItem('dataMahasiswa', JSON.stringify(mhs));
+        
+        alert("Data berhasil disimpan!");
+    }
+</script>
+
+<button class="btn-submit" onclick="simpanData()">Submit</button>
+</body>
+</html>
